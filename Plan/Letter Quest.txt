@@ -1,0 +1,26 @@
+Game Idea:
+Wordle is a word game, the player should guess the word, he have 6 chances the make the guess, the word is five letter word, the correct letter is colored in green, the misplaced letter colored in yellow, the wrong letter is collared in gray.
+
+
+Game (Wordle)
+
+User Stories:
+as a user :
+1- I want to guess a 5-letter word by clicking letters on an on-screen keyboard, so I can interact with the game intuitively.
+
+2- I want my guessed letters to appear on a grid with five tiles per row, so I can see my guesses clearly as I make them. 
+
+3- I want the letters in my guess to change color based on their correctness (green for correct, yellow for misplaced, gray for incorrect), so I can know how close I am to guessing the word.
+
+4- I want the game to prevent me from entering invalid words, so I don't waste guesses on words that don't exist.
+
+5-  I want the game to display animations when I reveal the letters, so the game feels more interactive and fun.
+
+6- I want the game to give me six guesses, so I have enough chance to win the game.
+
+7-  I want the on-screen keyboard to reflect the status of the letters I've used (correct, misplaced, incorrect), so I can track my guesses visually.
+
+8-  I want feedback (win/lose) after my attempts, so I know if I successfully guessed the word or failed after 6 attempts.
+
+9- I want the game to give me some kind of hint, so I can guess the word. 
+
