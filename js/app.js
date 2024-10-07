@@ -106,13 +106,13 @@ startGame();
 }
 
 function restartButtonClick() { 
-    restartGame() 
+    restartGame();
 }
 
 function keyboardClick(event) {
     if (event.target.classList.contains("kry")) {
         const letter = event.target.textContent;
-        handeleKeyPress(letter);
+        handleKeyPress(letter);
     }
 }
 
