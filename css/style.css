@@ -1,3 +1,118 @@
 * {
     box-sizing: border-box;
 }
+body {
+    background-color: gray;
+    /* Use a system font, if none are available use an available sans-sarif font */
+    font-family: system-ui, sans-serif;
+    /* Ensures full height compatibility across devices */
+    min-height: 100dvh;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#gameContainer {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ff9500;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #8a0b0b;
+}
+
+#hint {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #001aff;
+    font-weight: bold;
+}
+
+#gameArea {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tile {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #d3d3d3;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.5s, transform 0.3s ease;
+    background-color: #fff;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.key {
+    padding: 10px;
+    border: 2px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.key:hover {
+    background-color: #6a6a6a;
+}
+
+.correct {
+    background-color: rgb(3, 245, 3);
+    color: rgb(0, 0, 0);
+}
+
+.present {
+    background-color: yellow;
+    color: black;
+}
+
+.absent {
+    background-color: gray;
+    color: rgb(0, 0, 0);
+}
+
+#restartButton, button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restartButton:hover, button:hover {
+    background-color: #3067a1;
+}
+
+#restartButton:active, button:active {
+    background-color: #002750;
+    transform: scale(0.95);
+    box-shadow: none;
+}
