@@ -30,6 +30,14 @@ const startButton= document.getElementById("startButton");
 
 
 
+
+function startButtonClick() {
+    startGame();
+}
+function restartButtonClick() {
+    restartGame()
+}
+function keyboardClick() {}
 /*----------- Event Listeners ----------*/
 startButton.addEventListener("click",startButtonClick);
 restartButton.addEventListener("click",restartButtonClick);
