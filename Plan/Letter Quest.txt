@@ -1,6 +1,5 @@
 **Game Idea: ** 
 
-  
 
 Wordle is a word game, the player should guess the word, he have 6 chances the make the guess, the word is five letter word, the correct letter is colored in green, the misplaced letter colored in yellow, the wrong letter is collared in gray. 
 
