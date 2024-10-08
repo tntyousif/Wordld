@@ -2,22 +2,22 @@
 /*-------------- Constants -------------*/
 
 const wordList= [{word:"Apple",hint:"A common fruit, often red or green."},
-    {word:"House",hint:"A building where people live."},
-    {word:"Chair",hint:"A piece of furniture for sitting."},
-    {word:"Table",hint:"A piece of furniture with a flat top and legs."},
-    {word:"Bread",hint:"A staple food made from flour and water."},
-    {word:"Water",hint:" A clear, colorless liquid essential for life."},
-    {word:"Sunny",hint:" Bright with sunlight."},
-    {word:"Happy",hint:" Feeling or showing pleasure or contentment."},
-    {word:"Sound",hint:"Vibrations that can be heard."},
-    {word:"Dance",hint:"To move rhythmically to music."},
+    {word:"house",hint:"A building where people live."},
+    {word:"chair",hint:"A piece of furniture for sitting."},
+    {word:"table",hint:"A piece of furniture with a flat top and legs."},
+    {word:"bread",hint:"A staple food made from flour and water."},
+    {word:"water",hint:" A clear, colorless liquid essential for life."},
+    {word:"sunny",hint:" Bright with sunlight."},
+    {word:"happy",hint:" Feeling or showing pleasure or contentment."},
+    {word:"sound",hint:"Vibrations that can be heard."},
+    {word:"dance",hint:"To move rhythmically to music."},
 ];
 
 /*---------- Variables (state) ---------*/
 let secretWord="";
 let hint="";
 let currentGuess="";
-let currentRow= 0;
+let currentColumn= 0;
 
 /*----- Cached Element References  -----*/
 const gameArea = document.getElementById("gameArea");
@@ -39,7 +39,7 @@ function startGame() {
     console.log("Hint: " +hint);
 
     currentGuess = "";
-    currentRow = 0;
+    currentColumn = 0;
     gameArea.innerHTML = ""; 
     createTiles();
     createKeyboard();
@@ -49,7 +49,7 @@ function startGame() {
 
 //restart the game function
 function restartGame() {
-    currentRow = 0;
+    currentColumn = 0;
     currentGuess = "";
     
     const randomPic= Math.floor(Math.random() * wordList.length);
@@ -92,35 +92,36 @@ function createKeyboard() {
 
 //Tile creation 
 function createTiles() {
-    for (let i=0; i<6; i++ ){
-        const rowContainer = document.createElement("div");
-        rowContainer.setAttribute("id",`row ${i}`);
+    for (let i=0; i<5; i++ ){
+        const columnContainer = document.createElement("div");
+        columnContainer.setAttribute("id",`column ${i}`);
 
-        for (let row = 0; row < 5; row++) {
+        for (let column = 0; column < 6; column++) {
             const tile= document.createElement("div");
             tile.classList.add("tile");
-            tile.setAttribute("id",`tile-${i*5 + row }`);
-            rowContainer.appendChild(tile);
+            tile.setAttribute("id",`tile-${i*5 + column }`);
+            columnContainer.appendChild(tile);
 
             const letterDive = document.createElement("div");
             letterDive.classList.add("letter");
             tile.appendChild(letterDive);
         }
 
-        gameArea.appendChild(rowContainer);
+        gameArea.appendChild(columnContainer);
     }
 }
 
 //Update Tiles
 function updateTiles() {
+    
     for (let i = 0; i < currentGuess.length; i++) {
-        const tile = document.getElementById(`tile-${currentRow * 5 + i}`);
+        const tile = document.getElementById(`tile-${currentColumn * 5 + i}`);
         const letterDiv = tile.querySelector(".letter");
         letterDiv.textContent = currentGuess[i];
     }
     
     for (let i = currentGuess.length; i < tiles.length; i++) {
-        const tile = document.getElementById(`tile-${currentRow * 5 + i}`);
+        const tile = document.getElementById(`tile-${currentColumn * 5 + i}`);
         const letterDiv = tile.querySelector(".letter");
         letterDiv.textContent = '';
     }
@@ -132,11 +133,11 @@ function checkGuess() {
         if (currentGuess === secretWord) {
             endGame("You Win!");
         }
-        else if (currentRow === 6) {
+        else if (currentColumn === 6) {
             endGame(`You Lose! The word was ${secretWord}`);
         }
         else {
-            currentRow++;
+            currentColumn++;
             currentGuess="";
         }
     }
@@ -145,7 +146,7 @@ function checkGuess() {
 //Reveal the gussed letters
 function revealTiles() {
     for (let i =0; i < 5; i++) {
-        const tile = document.getElementById(`tile-${currentRow * 5 + i}`);
+        const tile = document.getElementById(`tile-${currentColumn * 5 + i}`);
         const letter = currentGuess[i];
     
         setTimeout(() => {
