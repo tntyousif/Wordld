@@ -25,6 +25,7 @@ const keyboard = document.getElementById("keyboard");
 const hintText = document.getElementById("hintText");
 const restartButton = document.getElementById("restartButton");
 const startButton = document.getElementById("startButton");
+const tiles = document.getElementById('gameArea').children;
 
 /*-------------- Functions -------------*/
 
@@ -42,6 +43,7 @@ function startGame() {
     gameArea.innerHTML = ""; 
     createTiles();
     createKeyboard();
+    startButton.style.display = "none";
 }
 
 
@@ -61,7 +63,6 @@ function restartGame() {
         tile.textContent = "";
         tile.classList.remove("correct", "present", "absent");
     });
-    createTiles();
 
     const keys = document.querySelectorAll(".key");
     keys.forEach(key => {
@@ -88,15 +89,105 @@ function createKeyboard() {
     });
 }
 
-// Handle key press
-function handleKeyPress(letter) {
-    if (currentGuess.length < 5) {
-        currentGuess += letter;
-        updateTiles();
+
+//Tile creation 
+function createTiles() {
+    for (let i=0; i<6; i++ ){
+        const rowContainer = document.createElement("div");
+        rowContainer.setAttribute("id",`row ${i}`);
+
+        for (let row = 0; row < 5; row++) {
+            const tile= document.createElement("div");
+            tile.classList.add("tile");
+            tile.setAttribute("id",`tile-${i*5 + row }`);
+            rowContainer.appendChild(tile);
+
+            const letterDive = document.createElement("div");
+            letterDive.classList.add("letter");
+            tile.appendChild(letterDive);
+        }
+
+        gameArea.appendChild(rowContainer);
+    }
+}
+
+//Update Tiles
+function updateTiles() {
+    for (let i = 0; i < currentGuess.length; i++) {
+        const tile = document.getElementById(`tile-${currentRow * 5 + i}`);
+        const letterDiv = tile.querySelector(".letter");
+        letterDiv.textContent = currentGuess[i];
+    }
+    
+    for (let i = currentGuess.length; i < tiles.length; i++) {
+        const tile = document.getElementById(`tile-${currentRow * 5 + i}`);
+        const letterDiv = tile.querySelector(".letter");
+        letterDiv.textContent = '';
+    }
+}
+
+function checkGuess() {
+    if (wordList.map(wordObj => wordObj.word).includes(currentGuess)) {
+        revealTiles();
+        if (currentGuess === secretWord) {
+            endGame("You Win!");
+        }
+        else if (currentRow === 6) {
+            endGame(`You Lose! The word was ${secretWord}`);
+        }
+        else {
+            currentRow++;
+            currentGuess="";
+        }
+    }
+}
+
+//Reveal the gussed letters
+function revealTiles() {
+    for (let i =0; i < 5; i++) {
+        const tile = document.getElementById(`tile-${currentRow * 5 + i}`);
+        const letter = currentGuess[i];
+    
+        setTimeout(() => {
+            tile.style.transform = "rotateX(90deg)";
+            setTimeout(() => {
+                tile.style.transform = "rotateX(0deg)";
+                tile.style.transition = "background-color 0.3s ease";
+                
+                if (secretWord[i] === letter) {
+                    tile.classList.add("correct");
+                    updateKeyboard(letter, "correct");
+                } else if (secretWord.includes(letter)) {
+                    tile.classList.add("present");
+                    updateKeyboard(letter, "present");
+                } else {
+                    tile.classList.add("absent");
+                    updateKeyboard(letter, "absent");
+                }
+            }, 300);
+        }, i*500);
+
     }
 
-    if (currentGuess.length === 5) {
-        checkGuess();
+}
+
+//update keyboard on guess
+function updateKeyboard(letter,status) {
+    const keyElement = Array.from(keyboard.children).find((key)=> key.textContent === letter);
+    if (keyElement && !keyElement.classList.contains("correct")) {
+        keyElement.classList.add(status);
+    }
+}
+
+// Handle key press
+function handleKeyPress(letter) {
+    if (currentGuess.length < tiles.length) {
+        currentGuess += letter;
+        updateTiles();
+
+        if (currentGuess.length === tiles.length) {
+            checkGuess();
+        }
     }
 }
 
@@ -110,7 +201,7 @@ function restartButtonClick() {
 }
 
 function keyboardClick(event) {
-    if (event.target.classList.contains("kry")) {
+    if (event.target.classList.contains("key")) {
         const letter = event.target.textContent;
         handleKeyPress(letter);
     }
@@ -120,3 +211,16 @@ function keyboardClick(event) {
 startButton.addEventListener("click",startButtonClick);
 restartButton.addEventListener("click",restartButtonClick);
 keyboard.addEventListener("click",keyboardClick);
+
+
+
+document.addEventListener('keydown', function(event) {
+    if (event.key.length === 1 && event.key.match(/[a-z]/i)) {
+        handleKeyPress(event.key);
+    }
+});
+
+document.getElementById('keyboard').addEventListener('click', function(event) {
+    event.preventDefault();
+    return false;
+});
