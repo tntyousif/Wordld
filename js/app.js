@@ -99,7 +99,7 @@ function updateTiles() {
     for (let row = 0; row <= currentRow; row++) {
         for (let i = 0; i < wordLength; i++) {
             const tile = document.getElementById(`tile-${row * wordLength + i}`);
-            tile.textContent = guesses[row] ? guesses[row][i] : "";
+            tile.textContent = guesses[row] ? guesses[row][i] : ""; // (?) other way to do if else 
         }
     }
 
