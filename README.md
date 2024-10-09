@@ -1,7 +1,7 @@
 # Letter Quest
 
 ## The game Idea
-Letter Quest is a wordle game, wher the player have to guess the secret word the user have six chances to correctly. to insert the guessed word the player has to interact with the on-scereen keyboard aftre every word the player guessed the letters will be colored baced on the status of the letter in the secrert word (correct letter: green, misplaced letter: yellow, incorrect letter: gray). If the player guessed the secret word a win message will appear, if the player did not guess the secret word and he used all the possible guesses lose message will appear and the secret word will be revile.
+Letter Quest is a wordle game, wher the player have to guess the secret word the user have six chances to correctly guess the word. To insert the guessed word the player has to interact with the on-scereen keyboard, aftre every word the player guessed the letters will be colored baced on the status of the letter in the secrert word (correct letter: green, misplaced letter: yellow, incorrect letter: red). If the player guessed the secret word a win message will appear, if the player did not guess the secret word and he used all the possible guesses lose message will appear and the secret word will be revile, and the restart button will appear.
 
 ---
 
