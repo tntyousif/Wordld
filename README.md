@@ -28,7 +28,7 @@ When the user clicks on a letter on the keyboard if the current guess is less th
 ---
 
 3. letter reveal:
-Compare each letter of the guess to the secret word, if the letter is in the correct position, color the tile green, if it’s in the secret word but mis-placed, the tile color will change to yellow and mark the letter as present on the keyboard, if the letter is not in the secret word the tile color will be gray.
+Compare each letter of the guess to the secret word, if the letter is in the correct position, color the tile green, if it’s in the secret word but mis-placed, the tile color will change to yellow and mark the letter as present on the keyboard, if the letter is not in the secret word the tile color will be red.
 <img src="/plan/checkGuess.png" alt="">
 
 ---
