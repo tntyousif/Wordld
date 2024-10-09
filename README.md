@@ -22,3 +22,9 @@ If the user has made six guesses without guessing the word, display (You Lose! T
 
 6. post Game:
 Provide an option for the user to restart the game (Restart button), which resets the grid, selects a new secret word, and clears the keyboard status.
+
+
+
+---
+### Final game design
+<img src="/Plan/Gmae design.png" alt="">
