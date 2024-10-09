@@ -3,18 +3,18 @@
 const wordLength = 5;
 const MAX_ATTEMPTS = 6;
 
-const wordList= [{word:"apple",hint:"A common fruit, often red or green."},
-    {word:"house",hint:"A building where people live."},
-    {word:"chair",hint:"A piece of furniture for sitting."},
-    {word:"table",hint:"A piece of furniture with a flat top and legs."},
-    {word:"bread",hint:"A staple food made from flour and water."},
-    {word:"water",hint:" A clear, colorless liquid essential for life."},
-    {word:"sunny",hint:" Bright with sunlight."},
-    {word:"happy",hint:" Feeling or showing pleasure or contentment."},
-    {word:"sound",hint:"Vibrations that can be heard."},
-    {word:"dance",hint:"To move rhythmically to music."},
-];
-
+const wordList= [
+    { "word": "apple", "hint": "This fruit is often associated with knowledge and temptation, and is a common symbol in various cultures." },
+    { "word": "house", "hint": "This structure provides shelter and is often a reflection of its inhabitants' personalities and lifestyles." },
+    { "word": "chair", "hint": "An essential piece of furniture, often designed for comfort during prolonged periods of sitting." },
+    { "word": "table", "hint": "Typically used for dining or working, this object serves as a surface for various activities." },
+    { "word": "bread", "hint": "A fundamental food item, historically referred to as the 'staff of life,' with countless regional variations." },
+    { "word": "water", "hint": "This vital compound, essential for all known forms of life, exists in three states: solid, liquid, and gas." },
+    { "word": "sunny", "hint": "Describing a condition characterized by the absence of clouds and an abundance of light from the star at the center of our solar system." },
+    { "word": "happy", "hint": "An emotional state often characterized by feelings of joy, satisfaction, or contentment, sometimes associated with personal achievements." },
+    { "word": "sound", "hint": "This phenomenon can be perceived through the auditory system and is produced by vibrating objects." },
+    { "word": "dance", "hint": "A form of expression involving coordinated movement, often performed in response to music or rhythm." }
+]
 /*---------- Variables (state) ---------*/
 
 let secretWord = "";
@@ -31,6 +31,7 @@ const hintText = document.getElementById("hintText");
 const restartButton = document.getElementById("restartButton");
 const startButton = document.getElementById("startButton");
 const messageArea = document.getElementById("messageArea");
+const gameDis = document.getElementById("gameDis");
 
 /*-------------- Functions -------------*/
 
@@ -43,13 +44,14 @@ function startGame() {
     secretWord = selectedWord.word;
     secretHint = selectedWord.hint;
 
-    hintText.textContent = secretHint;
+    hintText.textContent = `Hint: ${secretHint}`;
     hintText.style.display = "inline";
     hint.style.display = "inline";
     createTiles();
     createKeyboard();
    
     startButton.style.display = "none";
+    gameDis.style.display = "none";
 }
 
 function restartGame() {
@@ -161,11 +163,6 @@ function resetGameState() {
     tiles.forEach(tile => {
         tile.textContent = "";
         tile.classList.remove("correct", "present", "absent");
-    });
-
-    const keys = document.querySelectorAll(".key");
-    keys.forEach(key => {
-        key.classList.remove("correct", "present", "absent");
     });
 }
 

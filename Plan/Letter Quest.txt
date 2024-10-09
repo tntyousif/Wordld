@@ -91,12 +91,3 @@ If the user has made six guesses without guessing the word, display (You Lose! T
 
 Provide an option for the user to restart the game ("Play Again/Restart" button), which resets the grid, selects a new secret word, and clears the keyboard status. 
 
- 
-
-7- Keyboard Update: 
-
-After each guess, update the status of the letters on the on-screen keyboard, letter that is: guessed correct (green), misspelled (yellow), incorrect (gray).  
-
-Prevent further guesses to be from the incorrect letters. 
-
- 
