@@ -15,6 +15,7 @@ Define five letter words, Randomly select one Worde from the list as the guessed
 
 - create the keyboard
 <img src="/plan/creatKeyboard.png" alt="">
+
 - create the tiles grid
 <img src="/plan/creatTiles.png" alt="">
 
