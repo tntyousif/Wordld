@@ -59,7 +59,7 @@ Provide an option for the user to restart the game (Restart button), which reset
 
 ### Final game design
 <img src="/plan/Gmae design.png" alt="">
-[LetterQuest](https://tntyousif.github.io/Wordle/)
+https://tntyousif.github.io/Wordle/
 
 
 ### future work
