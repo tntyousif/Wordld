@@ -15,10 +15,11 @@ Define five letter words, Randomly select one Worde from the list as the guessed
 
 - create the keyboard
 <img src="/plan/creatKeyboard.png" alt="">
+<img src="/plan/keyboardCss.png" alt="">
 
 - create the tiles grid
 <img src="/plan/creatTiles.png" alt="">
-
+<img src="/plan/tileColor.png" alt="">
 ---
 
 2. user interaction:
@@ -51,7 +52,15 @@ Provide an option for the user to restart the game (Restart button), which reset
 
 <img src="/plan/restartButton.png" alt="">
 
+<img src="/plan/buttonsBehavior.png" alt="">
+
 ---
 
 ### Final game design
 <img src="/plan/Gmae design.png" alt="">
+[LetterQuest](https://tntyousif.github.io/Wordle/)
+
+
+### future work
+1. Game difficulty: (Easy, Mid, Hard).
+2. Color keybord letters base on there status.

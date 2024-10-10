@@ -85,22 +85,6 @@ h1 {
 }
 
 
-.key.correct {
-    background-color: green; 
-    color: white;
-}
-
-.key.present {
-    background-color: yellow; 
-    color: black;
-}
-
-.key.absent {
-    background-color: red; 
-    color: white;
-}
-
-
 #restartButton, button {
     margin: 10px;
     padding: 10px ;
