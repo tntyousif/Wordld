@@ -20,6 +20,7 @@ Define five letter words, Randomly select one Worde from the list as the guessed
 - create the tiles grid
 <img src="/plan/creatTiles.png" alt="">
 <img src="/plan/tileColor.png" alt="">
+
 ---
 
 2. user interaction:
